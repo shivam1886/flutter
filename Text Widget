@@ -1,0 +1,82 @@
+import 'package:flutter/material.dart';
+
+void main(){
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    return MaterialApp(
+         title: 'Container',
+         theme: ThemeData(
+           primarySwatch: Colors.blue
+         ),
+         home: Scaffold(
+           appBar: AppBar(
+             title: Text('Container')
+           ),
+            body :Column(
+               children: [
+                 Text('This is a large text',style: TextStyle(
+                   fontSize: 30.0
+                 )),
+                 Text('This is a bold text',style: TextStyle(
+                   fontSize: 30.0,
+                   fontWeight: FontWeight.bold
+                 )),
+                 Text('This is a italic text',style: TextStyle(
+                   fontSize: 30.0,
+                   fontStyle: FontStyle.italic
+                 )),
+                 Text('This is a colored text',style: TextStyle(
+                   fontSize: 30.0,
+                   color: Colors.red
+                 )),
+                 Text('This is a underline text',style: TextStyle(
+                   fontSize: 30.0,
+                   color: Colors.red,
+                   decoration: TextDecoration.underline
+                 )),
+                 Text('This is a Shadow text',style: TextStyle(
+                   fontSize: 30.0,
+                   color: Colors.red,
+                   shadows: [
+                     Shadow(
+                       color: Colors.black,
+                       blurRadius: 5,
+                       offset: Offset(8,1)
+                     )
+                   ]
+                 )),
+                 Text('This is a Word Spacing text',style: TextStyle(
+                   fontSize: 30.0,
+                   color: Colors.green,
+                   wordSpacing: 4
+                 )),
+                 Container(
+                   color: Colors.red,
+                    child:Text('This is line with \n new line',style: TextStyle(
+                   fontSize: 30.0,
+                   color: Colors.green,
+                   letterSpacing: 4
+                 ))
+                 ),
+                 Container(
+                   margin: EdgeInsets.all(10),
+                   color: Colors.red,
+                    child:Text('Maxline 3 allow Maxline 3 allowMaxline 3 allow Maxline 3 allowMaxline 3 allow Maxline 3 allowv',style: TextStyle(
+                   fontSize: 30.0,
+                   color: Colors.green,
+                 ),
+                 maxLines: 2,
+                 overflow: TextOverflow.ellipsis,
+                 textAlign: TextAlign.center,
+                 )
+                 ),
+               ],
+            )
+         ),
+    );
+  }
+}
