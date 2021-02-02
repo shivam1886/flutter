@@ -1,0 +1,36 @@
+import 'package:flutter/material.dart';
+
+void main(){
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title :'Simple App',
+      theme : ThemeData(primarySwatch: Colors.blue),
+      home  : Scaffold(
+         appBar: AppBar(
+           title : Text('Simple App')
+         ),
+         body: ListView.separated(
+           separatorBuilder: (ctx,index)=>Divider(),
+           itemCount: 100,
+           itemBuilder: (ctx,index){
+             return Padding(
+               padding: EdgeInsets.all(10),
+                child : ListTile(
+                  leading: Icon(Icons.add),
+                  title : Text('Lorem ipsum'),
+                  subtitle: Text('Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum'),
+                  trailing: Icon(Icons.add_a_photo),
+                )
+             ); 
+           },
+         ),
+      )
+    );
+  }
+}
