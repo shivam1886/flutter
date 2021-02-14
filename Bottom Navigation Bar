@@ -1,55 +1,53 @@
 import 'package:flutter/material.dart';
-import './screens/MainDrawer.dart';
 
 void main(){
-  runApp(App());
+  runApp(MyApp());
 }
 
-class App extends StatelessWidget{
+class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return MaterialApp(
-      title: 'Drawer',
+      theme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
-      home:SafeArea(
-        child: Scaffold(
-          appBar: AppBar(
-            title: Text('Nevigation Drawer'),
-            elevation: 0.0,
-          ),
-          drawer: Drawer(
-              child : MainDrawer(),
-          ),
-          bottomNavigationBar: BottomNavigationBar(
-            fixedColor: Colors.white,
-            currentIndex: 1,
-            backgroundColor: Colors.blue,
-            type: BottomNavigationBarType.fixed,
-          //  iconSize: 30,
-          //  selectedFontSize: 15,
-              unselectedFontSize: 15,
-              onTap: (index){},
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
-          ),
-        ],
-      ),
-          body : Container(
-          alignment: Alignment.center,
-          child: Text('Hello!'),
-        ),
-      ),
-      ),
-    );
+      title : 'My App',
+      home  : HomePage()
+    ); 
   }
 }
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(title: Text('Home'),centerTitle: true),
+        body  : Container(
+          alignment: Alignment.center,
+          child: Text('Hello Shiv!'),
+        ),
+        bottomNavigationBar: BottomNavigation(),
+      );
+  }
+}
+
+class BottomNavigation extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+     return BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: Colors.black,
+          unselectedItemColor: Colors.white30,
+          selectedItemColor: Colors.green,
+          currentIndex: 0,
+          items: [
+            BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),
+            BottomNavigationBarItem(icon: Icon(Icons.tv_sharp),label: 'TV'),
+            BottomNavigationBarItem(icon: Icon(Icons.favorite),label: 'Favourite'),
+            BottomNavigationBarItem(icon: Icon(Icons.sports_cricket),label: 'Sports'),
+            BottomNavigationBarItem(icon: Icon(Icons.logout),label: 'Logout')
+          ],
+        );
+  }
+}
+
