@@ -1,0 +1,36 @@
+import 'package:flutter/material.dart';
+
+void main(){
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    return MaterialApp(
+      title : 'Tab Bar',
+      theme : ThemeData.dark(),
+      debugShowCheckedModeBanner: false,
+      color: Colors.black,
+      home  : DefaultTabController(
+          length: 3,
+          child: Scaffold(
+            appBar: AppBar(
+              bottom: TabBar(
+                labelStyle: TextStyle(fontSize: 18,fontWeight: FontWeight.w400),
+                indicatorColor: Colors.green,
+                indicatorSize: TabBarIndicatorSize.tab,
+                unselectedLabelColor: Colors.white,
+                labelColor: Colors.green,
+                tabs: [
+                  Tab(text: 'CHATS'),
+                  Tab(text: 'STATUS'),
+                  Tab(text: 'CALLS')
+                ],
+              ),
+            ),
+          ),
+        ) ,
+    );
+  }
+}
